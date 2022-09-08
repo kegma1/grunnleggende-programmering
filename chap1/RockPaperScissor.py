@@ -22,7 +22,7 @@ if playerInput == cpuChoice:
     exit()
 
 winCondition = [(0, 2), (1, 0), (2, 1)]
-loseContition = [(0, 1), (1, 2), (2, 0)]
+loseCondition = [(0, 1), (1, 2), (2, 0)]
 
 gameCondition = (playerInput, cpuChoice)
 
@@ -30,6 +30,6 @@ if gameCondition in winCondition:
     print("You won!!\nYou picked", numToName(playerInput), "\nThe cpu picked", numToName(cpuChoice))
     exit()
 
-if gameCondition in loseContition:
+if gameCondition in loseCondition:
     print("You lost!!\nYou picked", numToName(playerInput), "\nThe cpu picked", numToName(cpuChoice))
     exit()
