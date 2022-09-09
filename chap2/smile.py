@@ -1,4 +1,3 @@
-from tracemalloc import start
 import turtle
 turtle.hideturtle()
 turtle.penup()
