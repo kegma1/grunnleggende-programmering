@@ -11,8 +11,6 @@
 # Enter the first 9 digits of an ISBN as a string: 013031997
 # The ISBN-10 number is 013031997X
 
-
-
 userInput = input("Enter the first 9 digits of an ISBN as a string: ")
 if not len(userInput) >= 9 or not len(userInput) < 10:
     print("Incorrect input. It must have exact 9 digits")
