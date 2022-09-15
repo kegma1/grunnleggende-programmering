@@ -1,5 +1,4 @@
-def decToBin(num: int) -> str: # inspiration fra htt
-    ps://www.cuemath.com/numbers/decimal-to-binary/
+def decToBin(num: int) -> str: # inspiration fra https://www.cuemath.com/numbers/decimal-to-binary/
     if num == 0:
         return ""
     else:
