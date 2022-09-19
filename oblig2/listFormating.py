@@ -1,11 +1,11 @@
 def formatList(list) -> str:
     if len(list) == 1:
         return list[0]
-    else:
-        finalString = ""
-        finalString += " and " + list[-1]
-        finalString = ", ".join(list[0:-1]) + finalString
-        return finalString
+
+    finalString = ""
+    finalString += " and " + list[-1]
+    finalString = ", ".join(list[0:-1]) + finalString
+    return finalString
 
 userList = []
 userInput = " "
