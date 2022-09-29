@@ -5,6 +5,14 @@ def findGene(seq: str) -> str:
     possibleSeqs = [seq[i:i+3] for i in range(0, len(seq), 3)]
     finalSeq = ""
     i = 0
+    hasEnd = False
+    for seq in possibleSeqs:
+        if seq in stopSeqs:
+            hasEnd = True
+            break
+    if not hasEnd:
+        return None
+
     while i < len(possibleSeqs):
         currentSeq = possibleSeqs[i]
         if not currentSeq in stopSeqs:
