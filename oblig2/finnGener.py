@@ -1,15 +1,21 @@
 startSeq = "ATG"
-nonLegalSeqs = ["ATG", "TAG", "TAA", "TGA"]
+stopSeqs = ["TAG", "TAA", "TGA"]
 
 def findGene(seq: str) -> str:
     possibleSeqs = [seq[i:i+3] for i in range(0, len(seq), 3)]
     finalSeq = ""
     i = 0
-    while not possibleSeqs[i] in nonLegalSeqs:
-        finalSeq += possibleSeqs[i]
-        i += 1
+    while i < len(possibleSeqs):
+        currentSeq = possibleSeqs[i]
+        if not currentSeq in stopSeqs:
+            if currentSeq == startSeq or len(currentSeq) % 3 != 0:
+                return None
+            else:
+                finalSeq += currentSeq
+                i += 1
+        else:
+            break
     return finalSeq
-
 
 userSequence = input("Enter a genome string: ") 
 geneList = []
@@ -20,9 +26,9 @@ while i < len(userSequence):
 
     if currentSeq == startSeq:
         geneSeq = findGene(userSequence[i+3:len(userSequence)])
-        geneList.append(geneSeq)
-        i += len(geneSeq)
-
+        if geneSeq != None:
+            geneList.append(geneSeq)
+            i += len(geneSeq)
     i += 1     
 
 if len(geneList) == 0:
