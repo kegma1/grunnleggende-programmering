@@ -35,7 +35,18 @@ def checkCols(board, key):
             return True
     return False
         
-def checkDiags(board, key):
+def checkDiags(board, key, dir): # dir is 1 or -1
+    j = 0 if dir == 1 else -1
+    isDigWinning = True
+    for i in range(3):
+        if board[i][j] == key:
+            j += dir
+            continue
+        else:
+            isDigWinning = False
+            break
+    if isDigWinning:
+        return True
     return False
     
 board = [
@@ -44,26 +55,28 @@ board = [
     [" ", " ", " "]
 ]
 
-
 currentPlayer = "X"
 isFinished = False
-
+# 
 while not isFinished:
     printBoard(board)
     row = int(input(f"Enter a row for player {currentPlayer}: "))
     col = int(input(f"Enter a column for player {currentPlayer}: "))
- 
+#  
     if board[row][col] != " ":
         continue
     board[row][col] = currentPlayer
-
-    isWinner = checkRows(board, currentPlayer) or checkCols(board, currentPlayer) or checkDiags(board, currentPlayer)
-
+# 
+    isWinner = checkRows(board, currentPlayer) or \
+        checkCols(board, currentPlayer) or \
+            checkDiags(board, currentPlayer, 1) or \
+                checkDiags(board, currentPlayer, -1)
+# 
     if isWinner:
         printBoard(board)
         print(f"{currentPlayer} player won")
         break
-
+# 
     isBoardFull = True
     for row in board:
         for x in row:
@@ -73,5 +86,5 @@ while not isFinished:
         printBoard(board)
         print(f"Its a draw")
         break
-
+# 
     currentPlayer = "O" if currentPlayer == "X" else "X"
