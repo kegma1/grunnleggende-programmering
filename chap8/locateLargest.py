@@ -18,13 +18,16 @@ def locateLargest(a):
     for row in a:
         (_, index) = max((x, i) for (i, x) in enumerate(row)) 
         largestIndexes.append(index)
-    biggestInRow = [(a[i][x], i,x) for i, x in enumerate(largestIndexes)]
-    return biggestInRow
+    biggestInRow = [(a[i][x], i, x) for i, x in enumerate(largestIndexes)]
+    biggest = max((x[0], (x[1], x[2])) for x in biggestInRow)
+    return biggest
     
     
+rowN = int(input("Enter the number of rows in the list: "))
 
-print(locateLargest([
-    [23.5, 35, 2, 10],
-    [4.5, 3, 45, 3.5],
-    [35, 44, 5.5, 11.6]
-]))
+matrix = []
+for _ in range(rowN):
+    matrix.append([float(x) for x in input(f"Enter a row: ").split(" ")])
+
+(_, largestPos) = locateLargest(matrix)
+print(f"The location of the largest element is at {largestPos}")
