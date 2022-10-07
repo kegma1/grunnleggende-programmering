@@ -34,5 +34,30 @@ class Itinerary:
         return sum([x.getFlightTime() for x in self.__flights])
 
     def getTotalTravelTime(self):
-        pass
+        start = self.__flights[0].getDepartureTime()
+        end = self.__flights[-1].getArrivalTime()
+        return (end - start).total_seconds() / 60.0
 
+
+def main():
+
+    flights = []
+            
+    flights.append(Flight("US230",
+        datetime(2014, 4, 5, 5, 5, 0),
+        datetime(2014, 4, 5, 6, 15, 0)))
+
+    flights.append(Flight("US235",
+        datetime(2014, 4, 5, 6, 55, 0),
+        datetime(2014, 4, 5, 7, 45, 0)))
+
+    flights.append(Flight("US237",
+        datetime(2014, 4, 5, 9, 35, 0),
+        datetime(2014, 4, 5, 12, 55, 0)))
+
+    itinerary = Itinerary(flights)
+    print(itinerary.getTotalTravelTime())
+    print(itinerary.getTotalFlightTime())
+
+if __name__ == "__main__":
+    main()
