@@ -1,11 +1,17 @@
 import random
 
 
+# def simulateBall(layer: int) -> str:
+#     if layer == 0:
+#         return ""
+#     direction = "L" if random.random() < .5 else "R"
+#     return direction + simulateBall(layer - 1)
 def simulateBall(layer: int) -> str:
-    if layer == 0:
-        return ""
-    direction = "L" if random.random() < .5 else "R"
-    return direction + simulateBall(layer - 1)
+    finalPath = ""
+    while layer != 0:
+        finalPath += "L" if random.random() < .5 else "R"
+        layer -= 1
+    return finalPath
 
 def findSlot(path: str) -> int:
     slot = 0
