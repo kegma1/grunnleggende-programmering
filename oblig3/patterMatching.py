@@ -1,5 +1,5 @@
 def isConsecutiveFour(values):
-    lastValue = 0
+    lastValue = values[0]
     count = 0
     for value in values:
         if count == 3:
