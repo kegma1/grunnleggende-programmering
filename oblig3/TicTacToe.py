@@ -57,26 +57,26 @@ board = [
 
 currentPlayer = "X"
 isFinished = False
-# 
+
 while not isFinished:
     printBoard(board)
     row = int(input(f"Enter a row for player {currentPlayer}: "))
     col = int(input(f"Enter a column for player {currentPlayer}: "))
-#  
+
     if board[row][col] != " ":
         continue
     board[row][col] = currentPlayer
-# 
+
     isWinner = checkRows(board, currentPlayer) or \
         checkCols(board, currentPlayer) or \
             checkDiags(board, currentPlayer, 1) or \
                 checkDiags(board, currentPlayer, -1)
-# 
+ 
     if isWinner:
         printBoard(board)
         print(f"{currentPlayer} player won")
         break
-# 
+ 
     isBoardFull = True
     for row in board:
         for x in row:
@@ -86,5 +86,5 @@ while not isFinished:
         printBoard(board)
         print(f"Its a draw")
         break
-# 
+ 
     currentPlayer = "O" if currentPlayer == "X" else "X"
