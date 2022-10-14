@@ -56,9 +56,8 @@ board = [
 ]
 
 currentPlayer = "X"
-isFinished = False
 
-while not isFinished:
+while True:
     printBoard(board)
     row = int(input(f"Enter a row for player {currentPlayer}: "))
     col = int(input(f"Enter a column for player {currentPlayer}: "))
