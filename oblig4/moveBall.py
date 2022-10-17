@@ -1,4 +1,3 @@
-from textwrap import fill
 from tkinter import *
 
 class Ball:
