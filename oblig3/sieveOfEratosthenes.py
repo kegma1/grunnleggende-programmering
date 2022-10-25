@@ -1,17 +1,16 @@
 def sieve(limit):
-    limit -= 1
-    primes = [True] * limit
-    for i, elm in enumerate(primes, start=1):
-        if elm:
-            for j in range(i + i, limit, i + 1):
+    primes = [True] * (limit + 1)
+    p = 2
+    while p * p <= limit:
+        if primes[p]:
+            for j in range(p * p, limit + 1, p):
                 primes[j] = False
+        p += 1
 
-    primesAsNum = []
-    for i, elm in enumerate(primes):
-        if elm:
-            primesAsNum.append(i + 2)
-    return primesAsNum
+    for i in range(2, limit+1):
+        if primes[i]:
+            print(i)
 
 userLimit = int(input("Enter a limit bigger than 1: "))
-print(sieve(userLimit))
+sieve(userLimit)
 
