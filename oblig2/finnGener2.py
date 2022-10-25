@@ -17,21 +17,25 @@ def findGene(seq: str) -> str | None:
         return
     return "".join(finalSeq)
 
-userSequence = input("Enter a genome string: ") 
-geneList = []
-currentSeq = ""
-i = 0
-while i < len(userSequence):
-    currentSeq = userSequence[i:i+3]
+def main():
+    userSequence = input("Enter a genome string: ") 
+    geneList = []
+    currentSeq = ""
+    i = 0
+    while i < len(userSequence):
+        currentSeq = userSequence[i:i+3]
 
-    if currentSeq == startSeq:
-        geneSeq = findGene(userSequence[i+3:len(userSequence)])
-        if geneSeq != None:
-            geneList.append(geneSeq)
-            i += len(geneSeq)
-    i += 1     
+        if currentSeq == startSeq:
+            geneSeq = findGene(userSequence[i+3:len(userSequence)])
+            if geneSeq != None:
+                geneList.append(geneSeq)
+                i += len(geneSeq)
+        i += 1     
 
-if len(geneList) == 0:
-    print("no gene is found")
-else:
-    [print(i) for i in geneList]
+    if len(geneList) == 0:
+        print("no gene is found")
+    else:
+        [print(i) for i in geneList]
+
+if __name__ == "__main__":
+    main()
