@@ -41,7 +41,7 @@ class Clock:
 
     def inc_day(self):
         new_day = self.__day + 1
-        if new_day < self.__get_month():
+        if new_day <= self.__get_month():
             self.__day = new_day
         else:
             self.__day = 1
@@ -72,7 +72,3 @@ class Clock:
 
     def __str__(self):
         return f"{self.__year:04}-{self.__month:02}-{self.__day:02} {self.__hour:02}:{self.__min:02}:{self.__sec:02}"
-
-x = Clock(2021, 1, 30, 23, 59, 59)
-x.inc_sec()
-print(x)
