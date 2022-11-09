@@ -1,5 +1,3 @@
-import unittest   # The test framework
-
 def findGenes(genome : str) -> list:
     startSeq = "ATG"
     stopSeqs = ["TAG", "TAA", "TGA"]
@@ -33,21 +31,3 @@ def findGenes(genome : str) -> list:
     if len(geneList) == 0:
         geneList.append("No genes found")
     return geneList
-
-
-
-
-
-class Test_genome(unittest.TestCase):
-    def test_emty_string(self):
-        result = findGenes("")
-        self.assertEqual(result[0], "No genes found")    
-
-    def test_rubbish_string(self):
-        result = findGenes("I AM A STRING WITH NO GENES WHATSOEVER")
-        self.assertEqual(result[0], "No genes found")
-
-if __name__ == '__main__':
-
-    unittest.main()
-
